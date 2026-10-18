@@ -344,7 +344,7 @@ Work from the bottom up: cables and interfaces first, then IP settings, then rou
 
 ## 👤 Author
 
-[Your Name] — Aspiring Network Engineer, building CCNA / networking fundamentals skills.
+Anish Raj — Aspiring Network Engineer, building CCNA / networking fundamentals skills.
 
 ---
 *This lab is part of my ongoing CCNA / Network Administrator study roadmap.*
