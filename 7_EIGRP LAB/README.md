@@ -407,7 +407,7 @@ EIGRP Lab/
 
 ## 👤 Author
 
-Aspiring Network Engineer, building CCNA / networking fundamentals skills.
+Anish Raj--Aspiring Network Engineer, building CCNA / networking fundamentals skills.
 
 ---
 *This lab is part of my ongoing CCNA / Network Administrator study roadmap.*
