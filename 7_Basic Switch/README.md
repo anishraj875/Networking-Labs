@@ -185,4 +185,4 @@ Basic-Switch-Telnet-Lab/
 
 ## 12. Author
 
-**Anish** ([@anishraj875](https://github.com/anishraj875)) - CCNA learner, building one lab at a time.
+ Anish Raj-- CCNA learner, building one lab at a time.
