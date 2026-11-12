@@ -1,0 +1,37 @@
+enable
+configure terminal
+hostname R4
+no ip domain-lookup
+
+interface GigabitEthernet0/0
+ description LAN B2 - SW5
+ ip address 192.168.50.1 255.255.255.0
+ no shutdown
+ exit
+
+interface GigabitEthernet0/1
+ description LAN B3 - SW6
+ ip address 192.168.60.1 255.255.255.0
+ no shutdown
+ exit
+
+interface Serial0/0/0
+ description WAN to R3
+ ip address 172.16.0.9 255.255.255.252
+ no shutdown
+ exit
+
+interface Serial0/0/1
+ description WAN to R2
+ ip address 172.16.0.6 255.255.255.252
+ no shutdown
+ exit
+
+! Static routes
+ip route 192.168.10.0 255.255.255.0 172.16.0.5
+ip route 192.168.20.0 255.255.255.0 172.16.0.5
+ip route 192.168.30.0 255.255.255.0 172.16.0.5
+ip route 172.16.0.0 255.255.255.252 172.16.0.5
+ip route 192.168.40.0 255.255.255.0 172.16.0.10
+end
+write memory
