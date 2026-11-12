@@ -129,7 +129,7 @@ crypto key generate rsa
 Continuing in the same session from Step 2:
 
 ```
-username anishraj privilege 15 secret <password>
+username anishraj privilege 15 secret <anishraj@8835>
 ip ssh version 2
 line vty 0 4
 transport input ssh
@@ -246,7 +246,7 @@ No problems were recorded for this lab. The table below lists the most likely fa
 
 ## 👤 Author
 
-[Your Name] — Aspiring Network Engineer, building CCNA / networking fundamentals skills.
+Anish Raj — Aspiring Network Engineer, building CCNA / networking fundamentals skills.
 
 ---
 *This lab is part of my ongoing CCNA / Network Administrator study roadmap.*
