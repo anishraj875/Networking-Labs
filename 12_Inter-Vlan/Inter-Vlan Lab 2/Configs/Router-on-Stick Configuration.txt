@@ -1,0 +1,43 @@
+Vlan-10 | PC-192.168.1.10 | Subnet- 255.255.255.0 |R1_GW-192.168.1.1
+Vlan-20 | PC-172.168.1.10 | Subnet- 255.255.0.0   |R1_GW-172.168.1.1
+
+Fa0/2-Vlan10 | Fa0/3-Vlan20 | Fa0/1-Trunk
+
+Gi0/0.1-Vlan10 | Gi0/0.2-Vlan20
+
+#Switch Configuration
+
+en
+conf t
+host SW
+vlan 10
+name HR
+vlan 20
+name MR
+
+int F0/2
+switchport mode access
+switchport access vlan 10
+
+int F0/3
+switchport mode access
+switchport access vlan 20
+
+int F0/1
+switchport mode trunk
+
+#Router Configuration
+en
+conf t
+host R1
+
+int g0/0
+no shut
+
+int g0/0.1
+encapsulation dot1q 10
+ip address 192.168.1.1 255.255.255.0
+
+int g0/0.2
+encapsulation dot1q 20
+ip address 172.168.1.1 255.255.0.0
