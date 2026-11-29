@@ -1,0 +1,83 @@
+# STP (Spanning Tree Protocol)
+
+* STP is a layer 2 protocol used on ethernet networks to prevent switching loops.It ensure that there
+  is only one path for data transfer.It controls broadcast Strom to avoid traffic. If one path fails
+  it open other path for data transfer and maintain redendency. It works on IEEE 802.1D and there is very
+  slow conversion. it takes 50 sec for data forwarding.
+# Roles of the ports
+
+1. Root Port : Ports of non-root swtich connected to Root Bridge/Switch are called Root Port.
+               It has the best path to the Root Bridge. it is connected to the Designated Port of
+               the Root Bridge.
+
+2. Designated Port : A port that forwards traffic onto a network segment. The switchport sending the
+                     the best BPDU on a segment has the designated port for that segment. Root Bridge
+                     ports are always designated ports.
+
+3. Blocked Port : Any port that is not a Root Port or a Designated Port is said to be a blocking port
+                  It does not forward traffic,thereby preventing a loop.
+
+
+# State of Ports
+
+* Blocking - 20 Sec (It will receive BPDU but does not forward MAC/Data farames)
+* Listening - 15 Sec (BPDU decides which switch will be Root Switch on the basis of MAC,Cost, and priority)
+  Lower Cost and Lower MAC is Priority. Default Priority = 32768 + 1 system id = 32769
+* Learning - 15 Sec (Calculate MAC address of other switches)
+* Forwarding 
+* Disable 
+
+* Cost 
+
+ Port                       Cost
+                        
+Ethernet = 10 mbps -         100
+FastEthernet = 100 mbps -     19
+Gigabyte = 1 gbps -            4 
+10 Gigabyte = 10 gbps -        2
+
+
+How to change root using priority 
+Command : spanning-tree vlan 1 priority 8192
+
+How to set primary Root
+Command : spanning-tree vlan 1 root primary
+
+# RSTP (Rapid Spanning Tree Protocol)
+
+RSTP is an improved and faster version of STP,used in ehternet networks to prevent switching loops
+Remember: RSTP (802.1w) uses different port states: Discarding, Learning and Forwarding.
+How to enable RSTP
+Command : spanning-tree mode rapid-pvst 
+
+How to enable PortFast | Only for indivisual Port
+Command : int fa0/1 
+	  spanning-tree portfast
+
+# BPDU (Bridge Protocol Datagram Unit)
+
+BPDU carry Bridge ID (Priority MAC), Port ID (Priority Number), Root path cost, Hello Timer and topology change
+details. All the switches exchange thier BPDU and Elect Root Bridge and Block redundant link.
+
+BPDU-Guard : Enhanced security for BPDU for a particular port which is velnerable.
+Command : Spanning-Tree Portfast bpduguard default (enable globally)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

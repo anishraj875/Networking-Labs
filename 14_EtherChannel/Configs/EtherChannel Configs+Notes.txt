@@ -1,0 +1,45 @@
+# EtherChannel
+
+:- Bundle multiple physical link into one link and creat a logical link and 
+   also mix/increase the bandwidth. The logical link have a mac address.
+
+Bnefits:- It maintain redendent network, Work as a loadbalacer, 
+
+# LACP- IEEE 802.3ad  | PAGP- Cisco Propreitory 
+
+LACP					PAGP
+Active-Reply+Inciate			Auto-Reply
+Passive- Reply				Desirable-Inciate+Reply
+
+Active + Active = Successful
+Active + Passive = Successful
+Passive + Passive = Not Successful
+
+
+# Configuration (PAGP)
+
+PC0-192.168.1.1 | PC1-192.168.1.2 | Server-192.168.1.3
+
+configure of multi-link on switch ( layer-2/3)
+
+SW-1
+int range fa0/2-4
+shut
+channel-group 1 mode auto
+no shut
+end
+wr
+
+SW-2
+int range fa0/2-4
+shut
+channel-group 1 mode desirable
+no shut
+end
+wr
+
+* Check status :
+show etherchannel , show interfaces, show ip int brief
+show int po1 , show etherchannel summary, 
+
+
